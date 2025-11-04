@@ -1,6 +1,9 @@
 #!/bin/bash
 
-dockerfile=$(find . -maxdepth 1 -name "Dockerfile.*" -type f -printf "%f\n" | sort -r | fzf --height 40% --layout reverse)
+dockerfile=${1}
+if [ -z "${dockerfile}" ]; then
+  dockerfile=$(find . -maxdepth 1 -name "Dockerfile.*" -type f -printf "%f\n" | sort -r | fzf --height 40% --layout reverse)
+fi
 
 browser_name=${dockerfile#*.}
 browser_name=${browser_name%_*}
