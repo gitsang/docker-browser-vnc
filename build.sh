@@ -12,5 +12,6 @@ image_name="gitsang/browser-vnc:${browser_name}-${browser_version}"
 
 echo "build image: ${image_name}"
 
-docker build -f "${dockerfile}" -t "${image_name}" .
+# shellcheck disable=SC2068
+docker build -f "${dockerfile}" -t "${image_name}" ${@} .
 docker push "${image_name}"
