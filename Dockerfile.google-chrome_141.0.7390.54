@@ -1,0 +1,11 @@
+FROM ghcr.io/linuxserver/baseimage-kasmvnc:ubuntujammy
+
+RUN \
+  curl -fsSL -o google-chrome.deb "https://mirror.cs.uchicago.edu/google-chrome/pool/main/g/google-chrome-stable/google-chrome-stable_141.0.7390.54-1_amd64.deb" && \
+  apt-get update && \
+  apt-get install -y --no-install-recommends ./google-chrome.deb && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/* && \
+  rm -rf google-chrome.deb
+
+COPY /root /
