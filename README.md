@@ -12,7 +12,9 @@ We use `linuxserver/docker-baseimage-kasmvnc` as the base image.
 
 ### 1.2 Chrome package
 
-Old version (48-104) of Chrome can be downloaded from https://www.slimjet.com/chrome/google-chrome-old-version.php
+Old version (48-104) of Chrome is downloaded from https://www.slimjet.com/chrome/google-chrome-old-version.php
+
+New version (105-latest) of Chrome is downloaded from https://mirror.cs.uchicago.edu/google-chrome/pool/main/g/google-chrome-stable/
 
 ### 1.3 Image tags named
 
