@@ -9,6 +9,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/UTC
+      - TITLE=Chrome 81
     volumes:
       - /etc/fonts:/etc/fonts
       - /usr/share/fonts:/usr/share/fonts
@@ -22,9 +23,6 @@ services:
 
   chrome-86:
     image: gitsang/browser-vnc:chrome-86.0.4240.75
-    build:
-      context: .
-      dockerfile: Dockerfile.google-chrome_86.0.4240.75
     container_name: chrome-86
     restart: unless-stopped
     shm_size: "512mb"
@@ -32,6 +30,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/UTC
+      - TITLE=Chrome 86
     volumes:
       - /etc/fonts:/etc/fonts
       - /usr/share/fonts:/usr/share/fonts
@@ -52,6 +51,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/UTC
+      - TITLE=Chrome 90
     volumes:
       - /etc/fonts:/etc/fonts
       - /usr/share/fonts:/usr/share/fonts
@@ -72,6 +72,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/UTC
+      - TITLE=Chrome 104
     volumes:
       - /etc/fonts:/etc/fonts
       - /usr/share/fonts:/usr/share/fonts
@@ -92,6 +93,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/UTC
+      - TITLE=Chrome 111
     volumes:
       - /etc/fonts:/etc/fonts
       - /usr/share/fonts:/usr/share/fonts
@@ -112,6 +114,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/UTC
+      - TITLE=Chrome 121
     volumes:
       - /etc/fonts:/etc/fonts
       - /usr/share/fonts:/usr/share/fonts
@@ -132,6 +135,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/UTC
+      - TITLE=Chrome 131
     volumes:
       - /etc/fonts:/etc/fonts
       - /usr/share/fonts:/usr/share/fonts
@@ -152,6 +156,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/UTC
+      - TITLE=Chrome 141
     volumes:
       - /etc/fonts:/etc/fonts
       - /usr/share/fonts:/usr/share/fonts
@@ -162,3 +167,45 @@ services:
       - "traefik.http.routers.to-chrome-141.tls.certResolver=ali_resolver"
       - "traefik.http.routers.to-chrome-141.service=chrome-141"
       - "traefik.http.services.chrome-141.loadBalancer.server.port=3000"
+
+  firefox-78:
+    image: gitsang/browser-vnc:firefox-78.15.0
+    container_name: firefox-78
+    restart: unless-stopped
+    shm_size: "512mb"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - TITLE=Firefox 78
+    volumes:
+      - /etc/fonts:/etc/fonts
+      - /usr/share/fonts:/usr/share/fonts
+      - ./firefox-78:/config
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.to-firefox-78.rule=Host(`firefox-78.${DOMAIN}`)"
+      - "traefik.http.routers.to-firefox-78.tls.certResolver=ali_resolver"
+      - "traefik.http.routers.to-firefox-78.service=firefox-78"
+      - "traefik.http.services.firefox-78.loadBalancer.server.port=3000"
+
+  firefox-144:
+    image: gitsang/browser-vnc:firefox-144.0.2
+    container_name: firefox-144
+    restart: unless-stopped
+    shm_size: "512mb"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - TITLE=Firefox 144
+    volumes:
+      - /etc/fonts:/etc/fonts
+      - /usr/share/fonts:/usr/share/fonts
+      - ./firefox-144:/config
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.to-firefox-144.rule=Host(`firefox-144.${DOMAIN}`)"
+      - "traefik.http.routers.to-firefox-144.tls.certResolver=ali_resolver"
+      - "traefik.http.routers.to-firefox-144.service=firefox-144"
+      - "traefik.http.services.firefox-144.loadBalancer.server.port=3000"
