@@ -1,8 +1,8 @@
-# docker-chrome
+# docker-browser-vnc
 
-Run multi-versions of chrome in docker VNC.
+Run multi-versions of chrome/firefox... in docker VNC.
 
-This project aims to provide a lightweight multi-version chrome testing environment for compatibility testing.
+This project aims to provide a lightweight multi-version browser testing environment for compatibility testing.
 
 ## 1. Summary
 
@@ -10,17 +10,22 @@ This project aims to provide a lightweight multi-version chrome testing environm
 
 We use `linuxserver/docker-baseimage-kasmvnc` as the base image.
 
-### 1.2 Chrome package
+### 1.2 package
 
-Old version (48-104) of Chrome is downloaded from https://www.slimjet.com/chrome/google-chrome-old-version.php
+Chrome is downloaded from:
 
-New version (105-latest) of Chrome is downloaded from https://mirror.cs.uchicago.edu/google-chrome/pool/main/g/google-chrome-stable/
+- https://www.slimjet.com/chrome/google-chrome-old-version.php
+- https://mirror.cs.uchicago.edu/google-chrome/pool/main/g/google-chrome-stable/
+
+Firefox is downloaded from:
+
+- https://ftp.debian.org/debian/pool/main/f/firefox-esr/
 
 ### 1.3 Image tags named
 
-`gitsang/chrome:{chrome-version}-{build-date}`
+`gitsang/browser-vnc:{browser}-{browser_version}`
 
-Visit https://hub.docker.com/r/gitsang/chrome/tags for available tags
+- https://hub.docker.com/r/gitsang/browser-vnc/tags
 
 ## 2. Build from source
 

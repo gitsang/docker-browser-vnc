@@ -1,7 +1,7 @@
 ---
 services:
   chrome-81:
-    image: gitsang/chrome:81.0.4044.92
+    image: gitsang/browser-vnc:chrome-81.0.4044.92
     container_name: chrome-81
     restart: unless-stopped
     shm_size: "512mb"
@@ -12,7 +12,7 @@ services:
     volumes:
       - /etc/fonts:/etc/fonts
       - /usr/share/fonts:/usr/share/fonts
-      - ./data/chrome-81:/config
+      - ./chrome-81:/config
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.to-chrome-81.rule=Host(`chrome-81.${DOMAIN}`)"
@@ -21,7 +21,7 @@ services:
       - "traefik.http.services.chrome-81.loadBalancer.server.port=3000"
 
   chrome-86:
-    image: gitsang/chrome:86.0.4240.75
+    image: gitsang/browser-vnc:chrome-86.0.4240.75
     build:
       context: .
       dockerfile: Dockerfile.google-chrome_86.0.4240.75
@@ -35,7 +35,7 @@ services:
     volumes:
       - /etc/fonts:/etc/fonts
       - /usr/share/fonts:/usr/share/fonts
-      - ./data/chrome-86:/config
+      - ./chrome-86:/config
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.to-chrome-86.rule=Host(`chrome-86.${DOMAIN}`)"
@@ -44,7 +44,7 @@ services:
       - "traefik.http.services.chrome-86.loadBalancer.server.port=3000"
 
   chrome-90:
-    image: gitsang/chrome:90.0.4430.72
+    image: gitsang/browser-vnc:chrome-90.0.4430.72
     container_name: chrome-90
     restart: unless-stopped
     shm_size: "512mb"
@@ -55,10 +55,110 @@ services:
     volumes:
       - /etc/fonts:/etc/fonts
       - /usr/share/fonts:/usr/share/fonts
-      - ./data/chrome-90:/config
+      - ./chrome-90:/config
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.to-chrome-90.rule=Host(`chrome-90.${DOMAIN}`)"
       - "traefik.http.routers.to-chrome-90.tls.certResolver=ali_resolver"
       - "traefik.http.routers.to-chrome-90.service=chrome-90"
       - "traefik.http.services.chrome-90.loadBalancer.server.port=3000"
+
+  chrome-104:
+    image: gitsang/browser-vnc:chrome-104.0.5112.102
+    container_name: chrome-104
+    restart: unless-stopped
+    shm_size: "512mb"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /etc/fonts:/etc/fonts
+      - /usr/share/fonts:/usr/share/fonts
+      - ./chrome-104:/config
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.to-chrome-104.rule=Host(`chrome-104.${DOMAIN}`)"
+      - "traefik.http.routers.to-chrome-104.tls.certResolver=ali_resolver"
+      - "traefik.http.routers.to-chrome-104.service=chrome-104"
+      - "traefik.http.services.chrome-104.loadBalancer.server.port=3000"
+
+  chrome-111:
+    image: gitsang/browser-vnc:chrome-111.0.5563.64
+    container_name: chrome-111
+    restart: unless-stopped
+    shm_size: "512mb"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /etc/fonts:/etc/fonts
+      - /usr/share/fonts:/usr/share/fonts
+      - ./chrome-111:/config
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.to-chrome-111.rule=Host(`chrome-111.${DOMAIN}`)"
+      - "traefik.http.routers.to-chrome-111.tls.certResolver=ali_resolver"
+      - "traefik.http.routers.to-chrome-111.service=chrome-111"
+      - "traefik.http.services.chrome-111.loadBalancer.server.port=3000"
+
+  chrome-121:
+    image: gitsang/browser-vnc:chrome-121.0.6167.139
+    container_name: chrome-121
+    restart: unless-stopped
+    shm_size: "512mb"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /etc/fonts:/etc/fonts
+      - /usr/share/fonts:/usr/share/fonts
+      - ./chrome-121:/config
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.to-chrome-121.rule=Host(`chrome-121.${DOMAIN}`)"
+      - "traefik.http.routers.to-chrome-121.tls.certResolver=ali_resolver"
+      - "traefik.http.routers.to-chrome-121.service=chrome-121"
+      - "traefik.http.services.chrome-121.loadBalancer.server.port=3000"
+
+  chrome-131:
+    image: gitsang/browser-vnc:chrome-131.0.6778.85
+    container_name: chrome-131
+    restart: unless-stopped
+    shm_size: "512mb"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /etc/fonts:/etc/fonts
+      - /usr/share/fonts:/usr/share/fonts
+      - ./chrome-131:/config
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.to-chrome-131.rule=Host(`chrome-131.${DOMAIN}`)"
+      - "traefik.http.routers.to-chrome-131.tls.certResolver=ali_resolver"
+      - "traefik.http.routers.to-chrome-131.service=chrome-131"
+      - "traefik.http.services.chrome-131.loadBalancer.server.port=3000"
+
+  chrome-141:
+    image: gitsang/browser-vnc:chrome-141.0.7390.54
+    container_name: chrome-141
+    restart: unless-stopped
+    shm_size: "512mb"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /etc/fonts:/etc/fonts
+      - /usr/share/fonts:/usr/share/fonts
+      - ./chrome-141:/config
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.to-chrome-141.rule=Host(`chrome-141.${DOMAIN}`)"
+      - "traefik.http.routers.to-chrome-141.tls.certResolver=ali_resolver"
+      - "traefik.http.routers.to-chrome-141.service=chrome-141"
+      - "traefik.http.services.chrome-141.loadBalancer.server.port=3000"

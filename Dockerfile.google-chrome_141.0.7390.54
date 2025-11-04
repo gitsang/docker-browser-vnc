@@ -8,4 +8,4 @@ RUN \
   rm -rf /var/lib/apt/lists/* && \
   rm -rf google-chrome.deb
 
-COPY /root /
+COPY /chrome /
