@@ -19,7 +19,7 @@ Chrome is downloaded from:
 
 Firefox is downloaded from:
 
-- https://ftp.debian.org/debian/pool/main/f/firefox-esr/
+- https://sourceforge.net/projects/ubuntuzilla/files/mozilla/apt/pool/main/f/firefox-mozilla-build/
 
 ### 1.3 Image tags named
 
@@ -32,7 +32,7 @@ Firefox is downloaded from:
 ### 2.1 Build from existing dockerfile
 
 ```bash
-docker build -f Dockerfile.google-chrome_86.0.4240.75 -t chrome:86.0.4240.75-20251104 .
+docker build -f Dockerfile.chrome_86.0.4240.75 -t browser-vnc:chrome-86.0.4240.75 .
 ```
 
 ### 2.2 Write your own dockerfile
@@ -54,15 +54,15 @@ Change the content of `/root/default/autostart` to your own application. For goo
 ### 3.1 Docker Cli
 
 ```bash
-docker run -it --rm -p 3000:3000 gitsang/chrome:81.0.4044.92-20251103
+docker run -it --rm -p 3000:3000 gitsang/browser-vnc:chrome-86.0.4240.75
 ```
 
 ### 3.2 Docker Compose
 
 ```yaml
 services:
-  chrome-81:
-    image: gitsang/chrome:81.0.4044.92-20251103
+  chrome-86:
+    image: gitsang/browser-vnc:chrome-86.0.4240.75
     container_name: chrome-81
     restart: unless-stopped
     shm_size: "512mb"
@@ -76,7 +76,7 @@ services:
       # optional
       - /etc/fonts:/etc/fonts
       - /usr/share/fonts:/usr/share/fonts
-      - ./data/chrome-81:/config
+      - ./chrome-86:/config
 ```
 
 ## 4. Reference
