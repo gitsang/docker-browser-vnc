@@ -1,10 +1,7 @@
 ---
 services:
   chrome-81:
-    image: gitsang/chrome:81.0.4044.92-20251103
-    build:
-      context: .
-      dockerfile: Dockerfile.google-chrome_81.0.4044.92
+    image: gitsang/chrome:81.0.4044.92
     container_name: chrome-81
     restart: unless-stopped
     shm_size: "512mb"
@@ -24,7 +21,7 @@ services:
       - "traefik.http.services.chrome-81.loadBalancer.server.port=3000"
 
   chrome-86:
-    image: gitsang/chrome:86.0.4240.75-20251104
+    image: gitsang/chrome:86.0.4240.75
     build:
       context: .
       dockerfile: Dockerfile.google-chrome_86.0.4240.75
@@ -45,3 +42,23 @@ services:
       - "traefik.http.routers.to-chrome-86.tls.certResolver=ali_resolver"
       - "traefik.http.routers.to-chrome-86.service=chrome-86"
       - "traefik.http.services.chrome-86.loadBalancer.server.port=3000"
+
+  chrome-90:
+    image: gitsang/chrome:90.0.4430.72
+    container_name: chrome-90
+    restart: unless-stopped
+    shm_size: "512mb"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /etc/fonts:/etc/fonts
+      - /usr/share/fonts:/usr/share/fonts
+      - ./data/chrome-90:/config
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.to-chrome-90.rule=Host(`chrome-90.${DOMAIN}`)"
+      - "traefik.http.routers.to-chrome-90.tls.certResolver=ali_resolver"
+      - "traefik.http.routers.to-chrome-90.service=chrome-90"
+      - "traefik.http.services.chrome-90.loadBalancer.server.port=3000"
